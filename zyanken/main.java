@@ -4,16 +4,17 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class main {
+    
     public static void main(String[] args) throws IOException { 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
         System.out.println("★★じゃんけんゲーム★★");
-        System.out.print("何回勝負にしますか？：");
-        int count = Integer.parseInt(br.readLine());
-        if(count < 1 ){
-            System.out.println("値が不正です。終了します");
-            System.exit(1);
-        }
+        int count = 0 ;
+        do{
+            System.out.print("何回勝負にしますか？：");
+            count = Integer.parseInt(br.readLine());
+        }while(count < 1 );
+       
         for(int i = 1 ; i <=count ; i++){
             System.out.println(i +"回戦");
             int yourHand = input();
@@ -29,25 +30,19 @@ public class main {
 
     public static int input() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
+	
         System.out.println("あなたの手を入力");
-        System.out.println("0:グー　1：チョキ　2：パー");
-        int player = Integer.parseInt(br.readLine());
 
-        if((player < 0) || (player > 2)){
-            System.out.println("値が不正です。終了します");
-            System.exit(1);
-        }
+        int player = -10 ;
+        do{
+            System.out.println("0:グー　1：チョキ　2：パー");
+            player = Integer.parseInt(br.readLine());
+        }while((player < 0) || (player > 2));
 
         System.out.print("あなたの手;");
         handDisplay(player);
 
-       
-
-        
-        
-        return player ;
-        
+        return player ;   
     }
 
     public static void handDisplay(int hand){
