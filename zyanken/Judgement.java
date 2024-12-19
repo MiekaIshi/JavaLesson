@@ -31,6 +31,7 @@ public class Judgement {
     }
       
     public void showResult(){
+        System.out.println("結果");
         System.out.println(win +"勝"+ lose +"敗"+ tie +"引き分け");
     }
     

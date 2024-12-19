@@ -23,7 +23,7 @@ public class main {
             System.out.print("あなたの手:");
             handDisplay(yourHand);
   
-            player.Judge(yourHand , cpuHand());
+            judge.Judge(yourHand , cpuHand());
            
         }
 
