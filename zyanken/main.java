@@ -15,34 +15,28 @@ public class main {
             count = Integer.parseInt(br.readLine());
         }while(count < 1 );
        
-        for(int i = 1 ; i <=count ; i++){
+        Player    player = new Player();
+        Judgement judge  = new Judgement(); 
+        for(int i = 1 ; i <= count ; i++){
             System.out.println(i +"回戦");
-            int yourHand = input();
-
-            Random rand = new Random();
-            int pc = rand.nextInt(3); 
-            System.out.print("コンピューターの手：");
-            handDisplay(pc);
-        
-            judg(yourHand , pc);
+            int yourHand = player.setHand();
+            System.out.print("あなたの手:");
+            handDisplay(yourHand);
+  
+            player.Judge(yourHand , cpuHand());
+           
         }
+
+        judge.showResult();
+
     }
 
-    public static int input() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	
-        System.out.println("あなたの手を入力");
-
-        int player = -10 ;
-        do{
-            System.out.println("0:グー　1：チョキ　2：パー");
-            player = Integer.parseInt(br.readLine());
-        }while((player < 0) || (player > 2));
-
-        System.out.print("あなたの手;");
-        handDisplay(player);
-
-        return player ;   
+    public static int cpuHand(){
+        Random rand = new Random();
+        int pc = rand.nextInt(3); 
+        System.out.print("コンピューターの手：");
+        handDisplay(pc);
+        return pc ;
     }
 
     public static void handDisplay(int hand){
@@ -63,17 +57,7 @@ public class main {
             System.out.println("値が不正です。終了します。");
             System.exit(1);
         }
-    }
-    public static void judg(int play ,int cpu){
-        //System.out.println(play +","+ cpu);
-        int ju = play - cpu ;
-        if(ju == 0){
-            System.out.println("あいこ");
-        }else if((ju == -1 ) || ( ju == 2) ){
-            System.out.println("あなたの勝ち");
-        }else{
-            System.out.println("あなたの負け");
-        }
 
     }
+   
 }
