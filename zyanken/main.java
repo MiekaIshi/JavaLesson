@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
-
 public class main {
     
     public static void main(String[] args) throws IOException { 
@@ -22,7 +21,7 @@ public class main {
             int yourHand = player.setHand();
             System.out.print("あなたの手:");
             handDisplay(yourHand);
-  
+          
             judge.Judge(yourHand , cpuHand());
            
         }
@@ -40,6 +39,9 @@ public class main {
     }
 
     public static void handDisplay(int hand){
+        String[] showHand = {"グー","チョキ","パー"};
+        System.out.println(showHand[hand]);
+        /* 
         switch(hand){
             case 0 :
             System.out.println("グー");
@@ -56,7 +58,7 @@ public class main {
             default:
             System.out.println("値が不正です。終了します。");
             System.exit(1);
-        }
+        }*/
 
     }
    
